@@ -44,7 +44,7 @@ const InputError = require('../exceptions/InputError');
         if (response.isBoom) {
             const newResponse = h.response({
                 status: 'fail',
-                message: "Payload content length greater than maximum allowed: 1000000",
+                message: "Payload content length greater than maximum allowed: 1000000"
             })
             newResponse.code(response.statusCode)
             return newResponse;
