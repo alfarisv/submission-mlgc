@@ -5,7 +5,7 @@ async function storeData(id, data) {
         projectId: 'submissionmlgc-alfarisv'
     });
    
-    const predictCollection = db.collection('prediction');
+    const predictCollection = db.collection('predictions');
 
     try {
         await predictCollection.doc(id).set(data);
