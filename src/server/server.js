@@ -8,7 +8,7 @@ const InputError = require('../exceptions/InputError');
 (async () => {
     const server = Hapi.server({
         port: 3000,
-        host: 'localhost',
+        host: '0.0.0.0',
         routes: {
             cors: {
               origin: ['*'],
@@ -28,7 +28,7 @@ const InputError = require('../exceptions/InputError');
                 status: 'fail',
                 message: `${response.message}`
             })
-            newResponse.code(response.statusCode)
+            newResponse.code(400)
             return newResponse;
         }
 
@@ -46,7 +46,7 @@ const InputError = require('../exceptions/InputError');
                 status: 'fail',
                 message: "Payload content length greater than maximum allowed: 1000000"
             })
-            newResponse.code(response.statusCode)
+            newResponse.code(413)
             return newResponse;
         }
 
